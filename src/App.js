@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
+import MyContext from "./mycontext";
+import Footer from "./footer";
+import Content from "./Content";
+import Header from "./header";
 
 function App() {
+  const[selectedUser, setSelectedUser]= useState("manohar");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MyContext.Provider
+      value={{selectedUser}}>
+     <Header/>
+     <Content/> 
+     <Footer/>
+
+    </MyContext.Provider>
   );
 }
 
